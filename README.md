@@ -1,56 +1,52 @@
-# Customer Churn Analysis Power-BI
-This project analyzes customer churn behavior in a betting platform using Power BI. The dashboard explores betting activity, customer engagement, VIP segmentation, revenue loss, and churn risk factors to identify which customers are most likely to leave and what retention strategies could reduce revenue loss.
-The purpose of this project is to demonstrate practical data analysis skills including:
+This project analyzes customer churn behavior in a betting platform using Power BI and Excel. The dashboard explores churn through various variances and churn risk factors to identify which customers are most likely to leave and what retention strategies could reduce revenue loss. 
 
--Data cleaning and transformation
+The analysis combines DAX calculations, behavioral analytics, and revenue impact modeling to identify the strongest predictors of churn and support retention decision-making.
 
--KPI reporting
+ The top cards display the datasets main identifiers such as the total customers, churn rate and churned customers. The tables below shows graphs and charts on how different variances contributed to churning. 
 
--Interactive dashboard design
+**Business Problem**
 
--Business performance analysis
+Identify why and where customer churn was causing revenue loss on a betting platform.  
 
--Trend identification
+**Business Objective**
 
--Data storytelling using Power BI
-
-# Business Objective
 The goal of this dashboard is to analyze betting activity and identify patterns that can help improve:
 
--Customer engagement
+- Customer engagement and retention strategies
+- Revenue tracking
+- Betting performance monitoring
+- Risk analysis
+- Decision-making through data visualization
 
--Revenue tracking
+## Key Findings
 
--Betting performance monitoring
+- Customers inactive for 30+ days showed highest churn risk.
+- Low-frequency bettors churned significantly more than active bettors.
+- Frequent support interactions correlated with increased churn.
+- Revenue at risk exceeded $100K.
 
--Risk analysis
+## Recommendation
 
--Retention strategies
+- Target inactive users with retention campaigns.
+- Introduce VIP engagement programs.
+- Trigger reactivation offers after 14 days of inactivity.
 
--Decision-making through data visualization
+**Dax Measures**
 
-# Tools Used
--Power BI Desktop
+**Active Customers** (30 Days) = CALCULATE(COUNT(betting_customer_churn_mock_data[CustomerID]),betting_customer_churn_mock_data[LastLoginDaysAgo] >=30
+)
 
--Power Query
+**Churn Rate** = DIVIDE(betting_customer_churn_mock_data[Churned Customers],betting_customer_churn_mock_data[Total Customers])
 
--DAX (Data Analysis Expressions)
+**Churned Customers** = CALCULATE(COUNT(betting_customer_churn_mock_data[Churn]),betting_customer_churn_mock_data[Churn]="Yes")
 
--Excel / CSV datasets
+**Total Customers** = COUNT(betting_customer_churn_mock_data[CustomerID])
 
-# Key Features 
-The dashboard includes:
+**Total Deposits** = SUM(betting_customer_churn_mock_data[MonthlyDepositUSD])
 
--KPI Cards
+**Tools Used**
 
--Revenue and betting trends
-
--Customer activity tracking
-
--Betting category analysis
-
--Interactive slicers and filters
-
--Time-based performance analysis
-
--Visual comparisons and summaries
+- Power BI Desktop
+- Power Query
+- DAX (Data Analysis Expressions)
+- Excel / CSV datasets
